@@ -1,5 +1,5 @@
-import Hero from '../components/sections/Hero';
-import CountdownTimer from '../components/sections/CountdownTimer';
+import Hero from '../componentes/sections/Hero';
+import CountdownTimer from '../componentes/sections/CountdownTimer';
 
 const Home = () => {
   return (
