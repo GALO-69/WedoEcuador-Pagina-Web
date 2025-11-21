@@ -14,3 +14,13 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Instalacion de Dependencias
+npm install
+npm install lucide-react        # íconos bonitos (para flechas, corazones, etc.)
+npm install react-hook-form     # para formularios de contacto/inscripción
+npm install @formspree/react    # para enviar formularios sin backend
+npm install react-router-dom
+npm run dev                     # para iniciar el proyecto
+npm install -D tailwindcss postcss autoprefixer  #Instalacion de Tailwind CSS
+npx tailwindcss init -p         #Para iniciarlo 
+
