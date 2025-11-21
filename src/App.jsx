@@ -1,15 +1,30 @@
-import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import Home from './pages/Home';
+import Programs from './pages/Programs';
+import Events from './pages/Events';
+import Community from './pages/Community';
+import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 
 function App() {
- 
-
   return (
-    <>
-      <div className="app-container">
-        <h1>Welcome to the App</h1>
-      </div>
-    </>
-  )
+    <Router>
+      <Routes>
+        {/* Todas las páginas usan el mismo Navbar + Footer */}
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/programas" element={<Programs />} />
+          <Route path="/eventos" element={<Events />} />
+          <Route path="/comunidad" element={<Community />} />
+          <Route path="/contacto" element={<Contact />} />
+        </Route>
+
+        {/* 404 - Página no encontrada */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
