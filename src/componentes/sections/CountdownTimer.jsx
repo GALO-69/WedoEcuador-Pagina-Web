@@ -1,57 +1,40 @@
 import { useState, useEffect } from 'react';
 
 const CountdownTimer = () => {
-  const targetDate = new Date('November 19, 2025 00:00:00').getTime();
-
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
+  const target = new Date('November 19, 2025 00:00:00').getTime();
+  const [time, setTime] = useState({ d: 0, h: 0, m: 0, s: 0 });
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const interval = setInterval(() => {
       const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+      const diff = target - now;
+      if (diff > 0) {
+        setTime({
+          d: Math.floor(diff / (1000 * 60 * 60 * 24)),
+          h: String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0'),
+          m: String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0'),
+          s: String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0')
         });
       }
     }, 1000);
-
-    return () => clearInterval(timer);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-yellow-500 to-orange-600 py-16 text-white">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl md:text-6xl font-bold mb-8">
-          FALTAN PARA EL DÍA DEL EMPRENDIMIENTO FEMENINO
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-5xl md:text-7xl font-bold">
-          <div>
-            <div>{String(timeLeft.days).padStart(2, '0')}</div>
-            <div className="text-xl md:text-2xl mt-2">DÍAS</div>
-          </div>
-          <div>
-            <div>{String(timeLeft.hours).padStart(2, '0')}</div>
-            <div className="text-xl md:text-2xl mt-2">HORAS</div>
-          </div>
-          <div>
-            <div>{String(timeLeft.minutes).padStart(2, '0')}</div>
-            <div className="text-xl md:text-2xl mt-2">MINUTOS</div>
-          </div>
-          <div>
-            <div>{String(timeLeft.seconds).padStart(2, '0')}</div>
-            <div className="text-xl md:text-2xl mt-2">SEGUNDOS</div>
-          </div>
-        </div>
+    <div style={{
+      background: 'linear-gradient(to right, #FFD700, #FF8C00)',
+      padding: '60px 20px',
+      textAlign: 'center',
+      color: 'white'
+    }}>
+      <h2 style={{ fontSize: '3rem', marginBottom: '40px' }}>
+        FALTAN PARA EL DÍA DEL EMPRENDIMIENTO FEMENINO
+      </h2>
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', flexWrap: 'wrap', fontSize: '4rem', fontWeight: 'bold' }}>
+        <div><div>{time.d}</div><div style={{ fontSize: '1.5rem' }}>DÍAS</div></div>
+        <div><div>{time.h}</div><div style={{ fontSize: '1.5rem' }}>HORAS</div></div>
+        <div><div>{time.m}</div><div style={{ fontSize: '1.5rem' }}>MINUTOS</div></div>
+        <div><div>{time.s}</div><div style={{ fontSize: '1.5rem' }}>SEGUNDOS</div></div>
       </div>
     </div>
   );
