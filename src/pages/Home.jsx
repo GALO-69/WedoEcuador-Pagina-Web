@@ -4,13 +4,10 @@ import CountdownTimer from '../componentes/sections/CountdownTimer';
 const Home = () => {
   return (
     <>
-      <Hero />
-      <CountdownTimer />
-      {/* Aquí irán las próximas secciones que te paso cuando quieras */}
-      <div className="py-20 bg-gray-50 text-center">
-        <h2 className="text-4xl font-bold text-gray-800">
-          Próximamente: Programas • Impacto • Embajadoras • Eventos
-        </h2>
+      < Hero />
+      < CountdownTimer />
+      <div className="h-96 bg-gradient-to-b from-blue-900 to-yellow-600 flex items-center justify-center">
+        <h2 className="text-white text-5xl font-bold">¡WEDO ECUADOR YA ESTÁ VIVO!</h2>
       </div>
     </>
   );
