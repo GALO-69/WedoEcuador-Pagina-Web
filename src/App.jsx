@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from './components/layout/Layout';
+import Layout from './componentes/layout/layout.jsx';
 import Home from './pages/Home';
 import Programs from './pages/Programs';
 import Events from './pages/Events';
@@ -25,6 +25,7 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
+
 
 export default App;
