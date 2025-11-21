@@ -4,10 +4,10 @@ import CountdownTimer from '../componentes/sections/CountdownTimer';
 const Home = () => {
   return (
     <>
-      < Hero />
-      < CountdownTimer />
-      <div className="h-96 bg-gradient-to-b from-blue-900 to-yellow-600 flex items-center justify-center">
-        <h2 className="text-white text-5xl font-bold">¡WEDO ECUADOR YA ESTÁ VIVO!</h2>
+      <Hero />
+      <CountdownTimer />
+      <div style={{ padding: '100px 20px', textAlign: 'center', background: '#f8f8f8' }}>
+        <h2 style={{ fontSize: '3rem', color: '#333' }}>¡Bienvenida a WEDO Ecuador!</h2>
       </div>
     </>
   );

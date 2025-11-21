@@ -19,13 +19,11 @@ function App() {
           <Route path="/comunidad" element={<Community />} />
           <Route path="/contacto" element={<Contact />} />
         </Route>
-    
+        
         {/* 404 - Página no encontrada */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
 };
-
-
 export default App;
